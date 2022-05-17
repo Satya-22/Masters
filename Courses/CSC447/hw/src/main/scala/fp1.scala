@@ -90,9 +90,12 @@ object fp1:
   //
   // You must call the "fact" function (five times) defined above instead of
   // hardcoding the numbers 1,2,6,24,120.
-  val factTest: List[Int] =
-    // TODO: Change "Nil" to the correct answer.
-    Nil
+  val factTest: List[Int] = 
+    
+    List(fact(1), fact(2), fact(3),fact(4),fact(5))
+
+          
+      // TODO: Change "Nil" to the correct answer.
 
   // EXERCISE 2: complete the following definition of the Fibonacci function.
   // You can use the mathematical definition of Fib:
@@ -101,41 +104,49 @@ object fp1:
   // fib(0) == 0
   // fib(1) == 1
   // fib(n) == fib(n-1) + fib(n-2), if n>1
-  def fib(n: Int): Int =
+  def fib(n: Int): Int = n match {
+    case 0 | 1 => n
+    case m => fib(n - 1) + fib(n - 2)
     // TODO: Provide definition here.
-    throw UnsupportedOperationException()
-
-
+    //throw UnsupportedOperationException()
+  }
   // EXERCISE 3: declare the identifier "p1" with a pair consisting of the
   // Int 7 and the String "hello"
   val p1: (Int, String) =
     // TODO: Provide definition here.
-    (-1, "")
+      (7,"hello")
+    //(-1, "")
 
   // EXERCISE 4: declare the identifier "t1" with a triple consisting of the
   // Int 7, the String "hello", and the Boolean false
   val t1: (Int, String, Boolean) =
+    (7,"hello",false)
     // TODO: Provide definition here.
-    (-1, "", true)
+    //(-1, "", true)
 
   // EXERCISE 5: write a function "swap" that takes a pair of an Int and a
   // String, and returns a pair of a String and an Int (with the values from
   // the pair passed an argument.
   //
-  // E.g., swap (p1) should return ("hello", 7).  You can use "p(0)" and
-  // "p(1)" to access the first and second components of a pair.
-  def swap(p: (Int, String)): (String, Int) =
+  // E.g., swap (p1) should return ("hello", 7).  You can use "p._1" and
+  // "p._2" to access the first and second components of a pair.
+  def swap(p: (Int, String)): (String, Int) = p match {
+    case (ab,cd) => (cd,ab)
+  }
     // TODO: Provide definition here.
-    throw UnsupportedOperationException()
+    //throw UnsupportedOperationException()
 
   // EXERCISE 6: write a function "sum" that takes a list of integers and
   // sums them.
   //
   // As with all of the exercises in this assignment, your function MUST be
   // recursive and MUST NOT use a while loop.
-  def sum(xs: List[Int]): Int =
+  def sum(xs: List[Int]): Int = xs match {
+    case Nil => 0
+    case _::ys => xs.head + sum(xs.tail) 
+  }
     // TODO: Provide definition here.
-    throw UnsupportedOperationException()
+   // throw UnsupportedOperationException()
 
 
   // EXERCISE 7: given the definition of the function "sumTailAux" below,
@@ -151,9 +162,10 @@ object fp1:
       case Nil     => accumulator
       case y :: ys => sumTailAux(ys, accumulator + y)
 
-  def sumTail(xs: List[Int]): Int =
+  def sumTail(xs: List[Int]): Int = 
+       sumTailAux(xs,0)
     // TODO: Provide definition here.
-    throw UnsupportedOperationException()
+    //throw UnsupportedOperationException()
 
 
   // EXERCISE 8: complete the following definition of the function "max" that
@@ -167,9 +179,14 @@ object fp1:
   // You MUST NOT use the "max" method on lists, but can use the "max" method
   // on integers: That is, you cannot use (xs.max) or similar.  But you can
   // use (1 max 2).
-  def maxList(xs: List[Int]): Int =
+  def max(xs: List[Int]): Int = xs match {
+    case Nil => throw new NoSuchElementException()
+    case c :: Nil => c
+    case c :: yy => c max max(yy)
+
+  }
     // TODO: Provide definition here.
-    throw NoSuchElementException()
+    //throw NoSuchElementException()
 
   // EXERCISE 9: given the definition of the function "maxTail" below,
   // complete the definition of the function "maxTailAux" so that "maxTail"
@@ -180,8 +197,12 @@ object fp1:
   // Your definition for "maxTailAux" must be recursive and not use while
   // loops.
   def maxTailAux(xs: List[Int], accumulator: Int): Int =
+    xs match
+      case Nil => accumulator
+      case a :: Nil => accumulator max a
+      case c :: xx => accumulator max maxTailAux(xx,c)
     // TODO: Provide definition here.
-    throw UnsupportedOperationException()
+    //throw UnsupportedOperationException()
 
   def maxTail(xs: List[Int]): Int =
     xs match
@@ -198,6 +219,13 @@ object fp1:
   // For example:
   // - otpu(10,5) == List(10,9,8,7,6,5)
   // - otpu(10,11) == Nil
-  def otpu(start: Int, end: Int): List[Int] =
+  def otpu(start: Int, end: Int): List[Int] = start match {
+
+    case z if start < end => List()
+    case x => List(x) ::: otpu(start-1,end)
+    //if start < end then Nil
+    //else 
+     // start :: otpu(start-1 ,end)
+  }
     // TODO: Provide definition here.
-    throw UnsupportedOperationException()
+    //throw UnsupportedOperationException()
