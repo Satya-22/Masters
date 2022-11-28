@@ -1,0 +1,400 @@
+ --- > Output for Process 0
+
+(base) satyayoganandaddala@Satyas-MacBook-Air BlockChain_Assignment % java -cp ".:gson-2.8.2.jar" Blockchain.java 0
+Satya Yoganand's Blockchain program. Ctl-c to quit
+
+Using processID 0
+
+Key Pair : java.security.KeyPair@150ab4ed
+Printing Public Key : PublicKeyObject@3a62c01e
+PublicKey for processID : 0 ----- MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB
+All the Servers have been set, waiting to receive start message
+Before Start Status : wait
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB","processID":0}
+PublicKeyArray : [PublicKeyObject@72e011bc]
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB","processID":1}
+PublicKeyArray : [PublicKeyObject@72e011bc, PublicKeyObject@1d57c354]
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB","processID":2}
+PublicKeyArray : [PublicKeyObject@72e011bc, PublicKeyObject@1d57c354, PublicKeyObject@29a62b50]
+ProcessID 0 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB
+ProcessID 1 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB
+ProcessID 2 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB
+----------------------------------------------
+Collected Data from Initial Block ........
+Processing BlockInput0.txt  File...
+Unverified Blocks sent to Priority Queue...
+11 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: fa717e663de841a5f7d8b59117534f3ae88f2871a8c3284b50ec075b6343aacb
+Printing the first four digits from hash in decimal along with the hex value : fa71 and 64113
+64113 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 4be9660d0c63849b44b8aa91834e0b448518548937147ef6170b5f18cb5402f4
+Printing the first four digits from hash in decimal along with the hex value : 4be9 and 19433
+block verified! with the value : 19433
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+10 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 62d9e94d683d5fbe1e977331e358a4e00d679662ccf7ac48f06845a8578580df
+Printing the first four digits from hash in decimal along with the hex value : 62d9 and 25305
+25305 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 02cbd9d20a4ec8a930e940cd82ded23bc5d1747c40cb114113b75f3ab4026903
+Printing the first four digits from hash in decimal along with the hex value : 02cb and 715
+block verified! with the value : 715
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+9 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 8eaf05fde3f88b1d5b5a580dfbc06a1a557bba88e7a153f0a932d9115225b765
+Printing the first four digits from hash in decimal along with the hex value : 8eaf and 36527
+36527 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 47d6d210be9d1c64edef4abc000ea0529e9283887521ce18f92c9aea6b8b9fe0
+Printing the first four digits from hash in decimal along with the hex value : 47d6 and 18390
+block verified! with the value : 18390
+processing to rework on block again...
+8 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: e83b6cb6a889b7713cdca5381c7b8c9e9469e0f9aa0cbf6ec35e2e18af8112e3
+Printing the first four digits from hash in decimal along with the hex value : e83b and 59451
+59451 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: a472fb71a33d3ce540a8dbb5ba04ca90da0cc1df13a11441f49bde017a908544
+Printing the first four digits from hash in decimal along with the hex value : a472 and 42098
+42098 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 94debe272ac656989f5a00116cd37e9332053b9a14f7ebf9cf911bed12600e56
+Printing the first four digits from hash in decimal along with the hex value : 94de and 38110
+38110 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+7 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 212c028bf703a1d5c50adfa96f36275292ed719a5e0643e390797442f62e2dc7
+Printing the first four digits from hash in decimal along with the hex value : 212c and 8492
+block verified! with the value : 8492
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+6 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: 24afb88e1c045ccae0c436d9243a04a0527b55c693f63f467ae5dadfd364680b
+Printing the first four digits from hash in decimal along with the hex value : 24af and 9391
+block verified! with the value : 9391
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+5 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: 33b8788fc61191bbfb923724e2eb3245286e807dba7578b6602aafa3ba96e0f1
+Printing the first four digits from hash in decimal along with the hex value : 33b8 and 13240
+block verified! with the value : 13240
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+4 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: 1f7dd7efb143c9a4e89d36a58b595cc7e88a3b9c6df25e8fabdec9a028528844
+Printing the first four digits from hash in decimal along with the hex value : 1f7d and 8061
+block verified! with the value : 8061
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+3 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: 8d1fc26b7f3714556877224133375c89ebfc2eddb5515c6900b5b2d1ae886168
+Printing the first four digits from hash in decimal along with the hex value : 8d1f and 36127
+36127 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 41360c65f4f86aa9ba89fc696fdad006b789009e2c132e5af16ec829cfb67206
+Printing the first four digits from hash in decimal along with the hex value : 4136 and 16694
+block verified! with the value : 16694
+processing to rework on block again...
+2 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: 9a34f040a6903a77bc8683a8c98bf3ffcb48472c4788e7f49e07466bb27ba80a
+Printing the first four digits from hash in decimal along with the hex value : 9a34 and 39476
+39476 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: e8c438bc7555755904697dd61ca933f713c0ccf975dc94c86b410f53f3dcff68
+Printing the first four digits from hash in decimal along with the hex value : e8c4 and 59588
+59588 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+1 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: d3880b1b25598a9b2c05fd9bb84edbb2f603ac8f2886d623407d923cf51aeccb
+Printing the first four digits from hash in decimal along with the hex value : d388 and 54152
+54152 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 051843812f3805edb7c96251328ac14a6957808537ddfdbc65a1b939e63847b3
+Printing the first four digits from hash in decimal along with the hex value : 0518 and 1304
+block verified! with the value : 1304
+processing to rework on block again...
+0 unverified blocks remaining
+BLOCKCHAIN COMPLETE
+
+----> Output for process 1
+
+(base) satyayoganandaddala@Satyas-MacBook-Air BlockChain_Assignment % java -cp ".:gson-2.8.2.jar" Blockchain.java 1
+Satya Yoganand's Blockchain program. Ctl-c to quit
+
+Using processID 1
+
+Key Pair : java.security.KeyPair@150ab4ed
+Printing Public Key : PublicKeyObject@3a62c01e
+PublicKey for processID : 1 ----- MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB
+All the Servers have been set, waiting to receive start message
+Before Start Status : wait
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB","processID":0}
+PublicKeyArray : [PublicKeyObject@5484353e]
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB","processID":1}
+PublicKeyArray : [PublicKeyObject@5484353e, PublicKeyObject@1d57c354]
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB","processID":2}
+PublicKeyArray : [PublicKeyObject@5484353e, PublicKeyObject@1d57c354, PublicKeyObject@29a62b50]
+ProcessID 0 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB
+ProcessID 1 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB
+ProcessID 2 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB
+----------------------------------------------
+Collected Data from Initial Block ........
+Processing BlockInput1.txt  File...
+Unverified Blocks sent to Priority Queue...
+12 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: edfe693c99d4ba911edcbfa1f3d29f2c56b0ca3a8d0f29141bb8d1c6b94b0990
+Printing the first four digits from hash in decimal along with the hex value : edfe and 60926
+60926 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: f30b90e10ab92eb6fa3d48cd7cf7a38aad6c37cb58a1a2c72878cb4864cefd6b
+Printing the first four digits from hash in decimal along with the hex value : f30b and 62219
+62219 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+11 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: b29f288f7881494f990c886714afd6cdd0af11661805b1132a131c320e6d7338
+Printing the first four digits from hash in decimal along with the hex value : b29f and 45727
+45727 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 44439a375fcf294cf2b84ce030e0a450c43c0dffa6c5a8a6ac6eacc6fa5b22f8
+Printing the first four digits from hash in decimal along with the hex value : 4443 and 17475
+block verified! with the value : 17475
+processing to rework on block again...
+10 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 78f654dd4a23452fcabcf10ce79093920e7fb47cfa2e9a0439c6e0a1ce7b576d
+Printing the first four digits from hash in decimal along with the hex value : 78f6 and 30966
+30966 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 857d65b2644b2edde202939108c664e08417bc7d0d8faba693ec0364267962fa
+Printing the first four digits from hash in decimal along with the hex value : 857d and 34173
+34173 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+9 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: d9a7978dbc48d1d7e54aa88932e44327478738aec11f7e17f53598513cbd07dc
+Printing the first four digits from hash in decimal along with the hex value : d9a7 and 55719
+55719 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 4b9000a4a34ef4e6eaf5970a13a95e34e61cb97c43deb9a9677c72d504984a2a
+Printing the first four digits from hash in decimal along with the hex value : 4b90 and 19344
+block verified! with the value : 19344
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+8 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 52d3c39fc01c620c98d581def70872c844552071b76c68c005f874e0e9b7a937
+Printing the first four digits from hash in decimal along with the hex value : 52d3 and 21203
+21203 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 9b546a6c7a0a9e7960e551d085864b5cdfecd9165d61f55b29f04a0b3953e602
+Printing the first four digits from hash in decimal along with the hex value : 9b54 and 39764
+39764 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+7 unverified blocks remaining
+Using the public key from process: 1
+Block already in blockchain
+6 unverified blocks remaining
+Using the public key from process: 1
+Block already in blockchain
+5 unverified blocks remaining
+Using the public key from process: 2
+Block already in blockchain
+4 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: 44e8d10fc24acb218f13b4b4768535f2cb13258dc241a4da438f86d4f986f83b
+Printing the first four digits from hash in decimal along with the hex value : 44e8 and 17640
+block verified! with the value : 17640
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+3 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: dc4906c39ff4f8d622c359b27b616788290f4e30f73a84a73c816871788115b9
+Printing the first four digits from hash in decimal along with the hex value : dc49 and 56393
+56393 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 82caa71b1eaba746c239961e1530cc773a071a77017ad23f815423a7604b5890
+Printing the first four digits from hash in decimal along with the hex value : 82ca and 33482
+33482 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+2 unverified blocks remaining
+Using the public key from process: 2
+Block already in blockchain
+1 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: ea4888b9c68a0306787c3db15d321af141a0873d33af9b1eab38302d2fafb0c3
+Printing the first four digits from hash in decimal along with the hex value : ea48 and 59976
+59976 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 193806b9a7cf23a0eebeea19ea600a10bec8b1dd7f303ccaf4e6536bf20e6abc
+Printing the first four digits from hash in decimal along with the hex value : 1938 and 6456
+block verified! with the value : 6456
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+0 unverified blocks remaining
+BLOCKCHAIN COMPLETE
+
+----> Output for Process 3
+
+(base) satyayoganandaddala@Satyas-MacBook-Air BlockChain_Assignment % java -cp ".:gson-2.8.2.jar" Blockchain.java 2
+Satya Yoganand's Blockchain program. Ctl-c to quit
+
+Using processID 2
+
+Key Pair : java.security.KeyPair@150ab4ed
+Printing Public Key : PublicKeyObject@3a62c01e
+PublicKey for processID : 2 ----- MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB
+All the Servers have been set, waiting to receive start message
+Before Start Status : wait
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB","processID":0}
+PublicKeyArray : [PublicKeyObject@2ea3e2a]
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB","processID":1}
+PublicKeyArray : [PublicKeyObject@2ea3e2a, PublicKeyObject@77642f4]
+Public Key Received: {"publicKey":"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB","processID":2}
+PublicKeyArray : [PublicKeyObject@2ea3e2a, PublicKeyObject@77642f4, PublicKeyObject@1d57c354]
+ProcessID 0 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC0I3YsBJIHSNSVQxEgkAPEFsiIgCuiY2tzPZtHYhHIdK1X2Uea7hUURuunK972SQJn/drc4oG6TSGXroMNRLz/RA5XKf2ELoPcYOWynldkib49fU88TFfNGXaXX875rgtWE4jtHK7JlKAFzRjHni+UdYd5h0C06f6rYZ22GS2WnQIDAQAB
+ProcessID 1 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3y8VY7mIIowaNlSey0hTvgu0MGJ/YAS+GievLcIlJTcFgCpmHCFirdYU8E+XFNy3pVnisSZRd/ZRonnOeX3KeAjtj59YWKE8Mu0LZPc1LfI1bi35KTPF/Z+jdpws39SImuDSV+nE8PHtCfZ9kqJBmjQcWfhV8vvagMCkQemmPvQIDAQAB
+ProcessID 2 Using : MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCNQhnWtEpWS9tRrzHa0IyBQsQcB7xzX0kZgM++7lzAvL0xcQa2c/rU1MJUcxZMtlNcyQBNOxw2CLIj8T74KT/bRSfFfamIKNwbdvcKVRsHspHEV+8+cq8cf9wT8PUOEVftqGICFbCVOx825Nnrrm8Vtur6qqRkgSGLrhxqReLZ9wIDAQAB
+----------------------------------------------
+Collected Data from Initial Block ........
+Processing BlockInput2.txt  File...
+Unverified Blocks sent to Priority Queue...
+11 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: f1784348e5e177cb6256b3632080bd962350a3368eb0b8f0ff4b126aa07c9897
+Printing the first four digits from hash in decimal along with the hex value : f178 and 61816
+61816 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: d936ff819c8366327a1e412197ee7cb57ef8568b37e71cbc0e9d1f0fa303b372
+Printing the first four digits from hash in decimal along with the hex value : d936 and 55606
+55606 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+10 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 7dc8d94d870ccc2214f47f6cd47eeab37f638fe5b22132cbc63bee362e6fdda9
+Printing the first four digits from hash in decimal along with the hex value : 7dc8 and 32200
+32200 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: df2ac7c0288f2cebf8b9ec05248811204397a9c0f178a3a5a521bcf1b3ec7dea
+Printing the first four digits from hash in decimal along with the hex value : df2a and 57130
+57130 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+9 unverified blocks remaining
+Using the public key from process: 0
+Attempting to verify block
+Hash is: 486058b3a172f7dbc5a322627c93ecfa8b177a682d9993a8b7170f3a8adbcf00
+Printing the first four digits from hash in decimal along with the hex value : 4860 and 18528
+block verified! with the value : 18528
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+8 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: bbbbc9281a960fa1f6c08e776eded385c724d54397eade765b83715099eb78c0
+Printing the first four digits from hash in decimal along with the hex value : bbbb and 48059
+48059 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 82277606d08da5baf1ee2b81d2245a1cf2fbeaf02b6f0a029632657193b6d079
+Printing the first four digits from hash in decimal along with the hex value : 8227 and 33319
+33319 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 3d22db10f306dcc4fc3e602d42585e594060133c607e8c3f90d519f081e78449
+Printing the first four digits from hash in decimal along with the hex value : 3d22 and 15650
+block verified! with the value : 15650
+processing to rework on block again...
+7 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: cf0cef95127c96b65621ef2f94e56a5298a224d69543c9a4fba3cdb60a2badbd
+Printing the first four digits from hash in decimal along with the hex value : cf0c and 53004
+53004 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 277168c07d625838a39d9595571ef3df205d59aa0611ea01a3a9e23670121d0f
+Printing the first four digits from hash in decimal along with the hex value : 2771 and 10097
+block verified! with the value : 10097
+processing to rework on block again...
+6 unverified blocks remaining
+Using the public key from process: 1
+Block already in blockchain
+5 unverified blocks remaining
+Using the public key from process: 2
+Block already in blockchain
+4 unverified blocks remaining
+Using the public key from process: 1
+Attempting to verify block
+Hash is: 50cd566cf799ba9e74ec5bbd25f8b6bf8064d85ea3b4c217efed5a75dc9685fc
+Printing the first four digits from hash in decimal along with the hex value : 50cd and 20685
+20685 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: 7293c305b0c65a6e3c5834497f92efb09b5b2f03507bddc31fbd4561376b1692
+Printing the first four digits from hash in decimal along with the hex value : 7293 and 29331
+29331 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+3 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: 450e555cc17432f974b1d4e67e97853a2c447c9201d9b0650772af53a8e26be3
+Printing the first four digits from hash in decimal along with the hex value : 450e and 17678
+block verified! with the value : 17678
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+2 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: 29d2fc6c7eb9d982837cb20f57ce127f95bbb1276b8b245a23612197f8bbc46b
+Printing the first four digits from hash in decimal along with the hex value : 29d2 and 10706
+block verified! with the value : 10706
+Block has been verified and added to the blockchain and started multicasting to all the other running processes
+1 unverified blocks remaining
+Using the public key from process: 2
+Attempting to verify block
+Hash is: 890bf497ee0be9845d6675bcca3fad8071a1bd63989dc6e38ae980638d979a05
+Printing the first four digits from hash in decimal along with the hex value : 890b and 35083
+35083 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: f510aa5660761740344e3d53d42a62d6e7f9ce43931afca52b43c9ee977ce2ae
+Printing the first four digits from hash in decimal along with the hex value : f510 and 62736
+62736 is not less than 20,000 so we did not solve the puzzle
+
+Hash is: f484caad143a1ff2b636af46839424c8a59216b3433d7c7464a0b7261f7521ea
+Printing the first four digits from hash in decimal along with the hex value : f484 and 62596
+62596 is not less than 20,000 so we did not solve the puzzle
+
+Abandoning block...
+0 unverified blocks remaining
+BLOCKCHAIN COMPLETE
+

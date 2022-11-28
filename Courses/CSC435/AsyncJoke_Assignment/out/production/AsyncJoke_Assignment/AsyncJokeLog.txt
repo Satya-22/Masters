@@ -1,0 +1,173 @@
+/***********     Client Log      *****************/
+
+/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59784:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/satyayoganandaddala/Documents/Depaul_Classes/CSC435/AsyncJoke_Assignment/out/production/AsyncJoke_Assignment AsyncJokeClient
+Satya Yoganand's Joke Client, 1.8.
+
+Using Server : localhost, Port: 9999
+Enter the User Name, (quit) to end:
+satya
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+2 4
+Result is 6
+Enter the numbers to sum :
+5 8
+Result is 13
+Joke Received
+JD satya: Why was six afraid of seven? Because seven eight nine.
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+3 5
+Result is 8
+Enter the numbers to sum :
+5 8
+Result is 13
+Enter the numbers to sum :
+4 7
+Result is 11
+Joke Received
+JA satya: What did one DNA say to the other DNA? ???Do these genes make me look fat????
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+1 1
+Result is 2
+Enter the numbers to sum :
+7 0
+Result is 7
+Joke Received
+JC satya: What do you get when you cross a polar bear with a seal? A polar bear.
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+6 6
+Result is 12
+Enter the numbers to sum :
+7 0
+Result is 7
+Joke Received
+JB satya: My IQ test results came back. They were negative.
+Joke Cycle Completed
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+2 5
+Result is 7
+Enter the numbers to sum :
+4 8
+Result is 12
+Proverb Received
+PA satya: Honesty is the best policy.
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+5 0
+Result is 5
+Proverb Received
+PB satya: Strike while the iron is hot.
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+6 6
+Result is 12
+Enter the numbers to sum :
+6 0
+Result is 6
+Proverb Received
+PD satya: An apple a day keeps the doctor away.
+Enter the User Name or Enter, (quit) to end:
+
+Enter the numbers to sum :
+4 9
+Result is 13
+Enter the numbers to sum :
+3 7
+Result is 10
+Proverb Received
+PC satya: Don???t judge a book by its cover.
+Proverb Cycle Completed ...
+Enter the User Name or Enter, (quit) to end:
+
+
+/*************** Server Log ******************/
+
+/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59787:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/satyayoganandaddala/Documents/Depaul_Classes/CSC435/AsyncJoke_Assignment/out/production/AsyncJoke_Assignment AsyncJokeServer
+
+Satya Yoganand's Joke server starting up...,listening at port 9999.
+
+Satya Yoganand's Admin Looper starting up...,listening at port : 5050.
+
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a joke ......
+Started Addition looper
+Printing received Digits : 2 4
+Creating new User...
+Printing received Digits : 5 8
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a joke ......
+Printing received Digits : 3 5
+Printing received Digits : 5 8
+UserId Already Exists !!!!
+Printing received Digits : 4 7
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a joke ......
+Printing received Digits : 1 1
+UserId Already Exists !!!!
+Printing received Digits : 7 0
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a joke ......
+Printing received Digits : 6 6
+UserId Already Exists !!!!
+Joke Cycle has been Completed ...
+Printing received Digits : 7 0
+Switching Mode to  : proverb
+Mode set to Proverb
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a Proverb ......
+Printing received Digits : 2 5
+UserId Already Exists !!!!
+Printing received Digits : 4 8
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a Proverb ......
+UserId Already Exists !!!!
+Printing received Digits : 5 0
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a Proverb ......
+Printing received Digits : 6 6
+UserId Already Exists !!!!
+Printing received Digits : 6 0
+UserID,Name : b9a429cd-35b5-495e-a49b-89ccb8416106 satya
+Port Number : 59785, Address :Satyas-MacBook-Air.local/127.0.0.1
+UUID for the current Session : b9a429cd-35b5-495e-a49b-89ccb8416106
+Providing a Proverb ......
+Printing received Digits : 4 9
+UserId Already Exists !!!!
+Proverb Cycle has been Completed ...
+Printing received Digits : 3 7
+
+/*************** JokeAdminClient Log********************/
+
+/Library/Java/JavaVirtualMachines/jdk-18.0.2.1.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=59790:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/satyayoganandaddala/Documents/Depaul_Classes/CSC435/AsyncJoke_Assignment/out/production/AsyncJoke_Assignment AsyncJokeAdminClient
+Satya Yoganand's Client Admin, 1.8.
+
+Using Server : localhost, Port: 5050
+Enter Joke/Proverb to Switch Modes, (quit) to end:
+proverb
+Mode in Client Admin : proverb
+Enter Joke/Proverb to Switch Modes, (quit) to end:

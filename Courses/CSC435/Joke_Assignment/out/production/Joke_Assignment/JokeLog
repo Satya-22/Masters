@@ -1,0 +1,199 @@
+JokeServer.java Output :
+
+Satya Yoganand's Joke server starting up...,listening at port 4545.
+
+Satya Yoganand's Admin Looper starting up...,listening at port : 5050.
+
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a joke ......
+Creating new User...
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a joke ......
+UserId Already Exists !!!!
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a joke ......
+UserId Already Exists !!!!
+Switching Mode to  : proverb
+Mode set to Proverb
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a Proverb ......
+UserId Already Exists !!!!
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a Proverb ......
+UserId Already Exists !!!!
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a Proverb ......
+UserId Already Exists !!!!
+Switching Mode to  : joke
+Mode set to Joke
+Bad Request
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a Joke ......
+UserId Already Exists !!!!
+Joke Cycle has been Completed ...
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a Joke ......
+UserId Already Exists !!!!
+Switching Mode to  : proverb
+Mode set to Proverb
+UUID for the current Session : b666fb05-42c3-4f93-a4e0-0967829c21e6
+Providing a Proverb ......
+UserId Already Exists !!!!
+Proverb Cycle has been Completed ...
+
+JokeClient Output :
+
+Satya Yoganand's Joke Client, 1.8.
+
+Using Server : localhost, Port: 4545
+Enter the User Name, (quit) to end:
+satya
+
+JC satya: What do you get when you cross a polar bear with a seal? A polar bear.
+
+JD satya: Why was six afraid of seven? Because seven eight nine.
+
+JB satya: My IQ test results came back. They were negative.
+
+PB satya: Strike while the iron is hot.
+
+PA satya: Honesty is the best policy.
+
+PC satya: Don’t judge a book by its cover.
+
+JA satya: What did one DNA say to the other DNA? “Do these genes make me look fat?”
+Joke Cycle Completed ...
+
+JD satya: Why was six afraid of seven? Because seven eight nine.
+
+PD satya: An apple a day keeps the doctor away.
+Proverb Cycle Completed ...
+
+JokeClientAdmin Output :
+
+Satya Yoganand's Client Admin, 1.8.
+
+Using Server : localhost, Port: 5050
+Enter Joke/Proverb to Switch Modes, (quit) to end:
+proverb
+Mode in Client Admin : proverb
+Enter Joke/Proverb to Switch Modes, (quit) to end:
+joke
+Mode in Client Admin : joke
+Enter Joke/Proverb to Switch Modes, (quit) to end:
+proverb
+Mode in Client Admin : proverb
+Enter Joke/Proverb to Switch Modes, (quit) to end:
+quit
+Mode in Client Admin : quit
+
+———————————————————————————
+
+Secondary Server Outputs :
+
+
+JokeServer Secondary Output :
+
+<S2> Satya Yoganand's Secondary Joke server starting up...,listening at port 4546.
+
+<S2> Satya Yoganand's Admin Looper starting up...,listening at port : 5051.
+
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a joke ......
+<S2> Creating new User...
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a joke ......
+<S2> UserId Already Exists !!!!
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a joke ......
+<S2> UserId Already Exists !!!!
+<S2> Switching Mode to  : proverb
+<S2> Mode set to Proverb
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Proverb ......
+<S2> UserId Already Exists !!!!
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Proverb ......
+<S2> UserId Already Exists !!!!
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Proverb ......
+<S2> UserId Already Exists !!!!
+<S2> Switching Mode to  : joke
+<S2> Mode set to Joke
+<S2> Bad Request
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Joke ......
+<S2> UserId Already Exists !!!!
+<S2> Joke Cycle has been Completed ...
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Joke ......
+<S2> UserId Already Exists !!!!
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Joke ......
+<S2> UserId Already Exists !!!!
+<S2> Switching Mode to  : proverb
+<S2> Mode set to Proverb
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Proverb ......
+<S2> UserId Already Exists !!!!
+<S2> Proverb Cycle has been Completed ...
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Proverb ......
+<S2> UserId Already Exists !!!!
+<S2> UUID for the current Session : a7944b49-91dc-4395-9b2c-bfdf7de73732
+<S2> Providing a Proverb ......
+<S2> UserId Already Exists !!!!
+
+
+
+JokeClient Secondary Output :
+
+<S2> Satya Yoganand's Secondary Joke Client, 1.8.
+
+<S2> Using Server : localhost, Port: 4546
+<S2> Enter the User Name, (quit) to end:
+Addala
+
+<S2> JB Addala: My IQ test results came back. They were negative.
+
+<S2> JA Addala: What did one DNA say to the other DNA? “Do these genes make me look fat?”
+
+<S2> JC Addala: What do you get when you cross a polar bear with a seal? A polar bear.
+
+<S2> PB Addala: Strike while the iron is hot.
+
+<S2> PD Addala: An apple a day keeps the doctor away.
+
+<S2> PA Addala: Honesty is the best policy.
+
+<S2> JD Addala: Why was six afraid of seven? Because seven eight nine.
+<S2> Joke Cycle Completed ...
+
+<S2> JA Addala: What did one DNA say to the other DNA? “Do these genes make me look fat?”
+
+<S2> JC Addala: What do you get when you cross a polar bear with a seal? A polar bear.
+
+<S2> PC Addala: Don’t judge a book by its cover.
+<S2> Proverb Cycle Completed ...
+
+<S2> PC Addala: Don’t judge a book by its cover.
+
+<S2> PB Addala: Strike while the iron is hot.
+
+
+JokeClientAdmin Secondary Output :
+
+<S2> Satya Yoganand's Secondary Client Admin, 1.8.
+
+<S2> Using Server : localhost, Port: 5051
+<S2> Enter Joke/Proverb to Switch Modes, (quit) to end:
+proverb
+<S2> Mode in Client Admin : proverb
+<S2> Enter Joke/Proverb to Switch Modes, (quit) to end:
+joke
+<S2> Mode in Client Admin : joke
+<S2> Enter Joke/Proverb to Switch Modes, (quit) to end:
+proverb
+<S2> Mode in Client Admin : proverb
+<S2> Enter Joke/Proverb to Switch Modes, (quit) to end:
+

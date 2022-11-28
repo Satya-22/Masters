@@ -1,0 +1,331 @@
+/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=55886:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/satyayoganandaddala/Documents/Depaul_Classes/CSC435/MiniWebserver_Assignment/out/production/MiniWebserver_Assignment MiniWebserver
+Satya Yoganand's Mini Webserver 1.8 starting up,listening at port 2540.
+
+Looking up ....GET / HTTP/1.1
+FileName : /
+Request for text file /
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....null
+Null Found
+Looking up ....GET /Z_directory/ HTTP/1.1
+FileName : /Z_directory/
+Request for text file /Z_directory/
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET / HTTP/1.1
+FileName : /
+Request for text file /
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /dog.txt HTTP/1.1
+FileName : /dog.txt
+Request for text file /dog.txt
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /cat.html HTTP/1.1
+FileName : /cat.html
+Requesting a html file : /cat.html
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....null
+Null Found
+Looking up ....GET /out/ HTTP/1.1
+FileName : /out/
+Request for text file /out/
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /out/production/ HTTP/1.1
+FileName : /out/production/
+Request for text file /out/production/
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET / HTTP/1.1
+FileName : /
+Request for text file /
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored
+Looking up ....GET /favicon.ico HTTP/1.1
+FileName : /favicon.ico
+Favicon detected and Ignored

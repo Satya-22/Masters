@@ -1,0 +1,971 @@
+/* Server Code */
+
+/*
+         1. Name / Date: satya Yoganand Addala / 22-09-2022
+
+         2. Java version used (java -version), if not the official version for the class: 17.0.2
+
+         3. Precise command-line compilation examples / instructions:
+           > javac JokeServer.java
+           > javac JokeClientAdmin.java
+           > javac JokeClient.java
+
+         4. Precise examples / instructions to run this program:
+
+            In separate shell windows run all the below commands :
+
+                > java JokeServer.java
+                > java JokeClient.java
+                > java JokeClientAdmin.java
+
+            All acceptable commands are displayed on the various consoles.
+
+         5. Notes:
+
+           *  This File Includes to use both primary and secondary servers on ports 4545,4546 respectively.
+           *  There is a Unique ID used for each client and based on this I have used HapMap which holds Unique Id and set of Jokes
+           *  There is a Joke Indicator Included which checks if the jokes in the list exceeds 4 if it does them it deletes all the four jokes.
+           *  There is a Proverb Indicator Included which checks if the jokes in the list exceeds 4 if it does them it deletes all the four Proverbs.
+           *  In this I have used random method to shuffle between jokes and a condition to remove duplicates.
+           *  Methods RemoveJokes() and RemoveProverbs() are used for removing jokes/proverbs respectively from the list.
+           *  Jokes have been taken from  https://www.rd.com/list/funniest-one-liners-you-havent-heard-yet/
+           *  For each statement there is a check of which server the data has to go i.e., Primary or Secondary
+
+*/
+
+import java.io.IOException;
+import java.net.*;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintStream;
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+
+public class AsyncJokeServer {
+    /* Initializing the mode to Joke by default */
+    public static String mode = "joke";
+    /* Setting the serverType to primary by default */
+    public static boolean serverType = false;
+    public static boolean addition = false;
+
+    public static void main(String args[]) throws IOException, InterruptedException {
+        /* Allowed number of connections from client to server at the same time */
+        int q_len = 6;
+        /* Initializing port to zero */
+        int port = 0;
+        /* Initializing servsock to null */
+        ServerSocket servsock = null;
+        DatagramSocket ds = new DatagramSocket(9999);
+
+
+        byte buf[] = null;
+        Socket sock = null;
+        if (args.length < 1) {         /* Checking for Arguments */
+            /* Port used for primary Server */
+            port = 4545;
+            /* The ServerSocket will take the portNumber and queue length on which it is going to communicate */
+          //  servsock = new ServerSocket(port, q_len);
+
+            System.out.println("Satya Yoganand's Joke server starting up...,listening at port 4545.\n");
+        }
+
+        /* Creating an Admin Looper Thread */
+        AdminLooper AL = new AdminLooper();
+        Thread t = new Thread(AL);
+        /* Starting the thread it, waiting for administration input */
+        t.start();
+
+        Worker worker = new Worker(ds);
+        Thread w = new Thread(worker);
+        w.start();
+    }
+    }
+
+class AdminLooper implements Runnable {
+    public static boolean adminControlSwitch = true;
+    public void run() {                /* Running the Admin listen loop */
+        /* Number of requests for OS to queue */
+        int q_len = 6;
+        int port;
+
+        port = 5050;
+        System.out.println("Satya Yoganand's Admin Looper starting up...,listening at port : "+port +".\n");
+        /* Creating Socket Variable */
+        Socket sock;
+        ServerSocket servsock = null;
+        try {
+            servsock = new ServerSocket(port, q_len);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        while (adminControlSwitch) {
+            /* Accepting the connections */
+            try {
+                sock = servsock.accept();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+            /* Starting the ModeWorker */
+            new ModeWorker(sock).start();
+        }
+    }
+}
+
+class ModeWorker extends Thread {
+
+    /* Creating a Socket Variable */
+    Socket sock;
+    // Constructor for fetching the Socket
+    ModeWorker(Socket s) {
+        sock = s;
+    }
+    public void run() {
+        /* Initializing out variable to null and this is used to send the data from Server to Client */
+        PrintStream out = null;
+        /* Initializing in variable to null and this is used to receive data from client to server */
+        BufferedReader in = null;
+
+        try {
+            /* Fetching the inputs for the server using BufferedReader through inputStream */
+            in = new BufferedReader(new InputStreamReader(sock.getInputStream()));
+            /* Used to send information from the server to client through PrintStream */
+            out = new PrintStream(sock.getOutputStream());
+
+            try {
+                String mode;
+                /* Blocking Call - the server code will pauses at this point and starts listening to the input from client */
+                /* This will capture the mode if it is a Joke or Proverb */
+                mode = in.readLine();
+
+                if(!AsyncJokeServer.serverType) {System.out.println("Switching Mode to  : " + mode );}
+                else{System.out.println("<S2> Switching Mode to  : " + mode );}
+                if(mode.equalsIgnoreCase("joke")) {
+                    /* Setting the mode to Joke */
+                    AsyncJokeServer.mode = "Joke";
+                    /* Checking the serverType */
+                    if(!AsyncJokeServer.serverType){System.out.println("Mode set to Joke ");}
+                    else{System.out.println("<S2> Mode set to Joke ");}
+                }
+                if(mode.equalsIgnoreCase("proverb")){
+                    /* Setting the mode to Proverb */
+                    AsyncJokeServer.mode = "Proverb";
+                    /* Checking the server Type */
+                    if(!AsyncJokeServer.serverType) {System.out.println("Mode set to Proverb");}
+                    else {System.out.println("<S2> Mode set to Proverb");}
+                }
+                else {
+                    /* Checking the serverType */
+                    if(!AsyncJokeServer.serverType){System.out.println("Bad Request");}
+                    else {System.out.println("<S2> Bad Request");}
+                }
+            } catch (IOException x) { /* Handling the IOException if the name variable is not valid */
+                if(!AsyncJokeServer.serverType) {System.out.println("Server read error");}
+                else{System.out.println("<S2> Server read error");}
+                x.printStackTrace();
+            }
+            sock.close();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
+class Worker extends Thread {
+
+    //Create a Socket Object
+    public static Socket sock;
+    /* Array List to contain all the Jokes */
+    private static ArrayList<String> Jokeslist = new ArrayList<String>();
+
+    /* Array List to contain all the proverbs */
+    private static ArrayList<String> Proverbslist = new ArrayList<String>();
+
+    /* Array List to contain all the copies of Jokes that are used */
+    private static ArrayList<String> JokeslistCopy = new ArrayList<String>();
+
+    /* Hashmap to map main the conversations of client and server with respect to userId*/
+    private static HashMap<String, ArrayList<String>> map = new HashMap<>();
+
+    /* Array List to contain all the copies of Proverbs that are used */
+    private  static ArrayList<String> ProverbslistCopy = new ArrayList<String>();
+
+    /* List for holding all the unique userID's*/
+    private static LinkedList<String> UUIDList = new LinkedList<>();
+
+    /* Creating a static variable for username */
+    private static String user_Name;
+
+    /* This Joke_Indicator will help to keep track of the Jokes completed per cycle*/
+    private static int Joke_Indicator = 0;
+
+    /* This Proverb_Indicator will help to keep track of the Procerb completed per cycle*/
+    private static int Proverb_Indicator = 0;
+
+    /* Initializing the out variable to null */
+    private static PrintStream out = null;
+
+    /* Initializing the in variable to null */
+    private static BufferedReader in = null;
+
+
+    DatagramSocket socket;
+
+    /* Constructor for fetching the Socket */
+
+    public Worker(DatagramSocket ds){
+        this.socket = ds;
+    }
+
+    public void run() {
+        while(true){
+
+        try {
+
+            byte[] receive = new byte[65535];
+
+            DatagramPacket DpReceive = null;
+            InetAddress ip = InetAddress.getLocalHost();
+
+            try {
+                String name;
+                String userId;
+                int port = 0;
+                String address = "";
+
+                DpReceive = new DatagramPacket(receive, receive.length);
+
+
+                socket.receive(DpReceive);
+
+
+                userId = data(receive).toString().split("@")[0];
+
+                name = data(receive).toString().split("#")[0].split("@")[1];
+
+                port = Integer.parseInt(data(receive).toString().split("#")[1].split(";")[0]);
+
+                address = data(receive).toString().split(";")[1];
+
+
+                System.out.println("UserID,Name : "+ userId + " "+name);
+                System.out.println("Port Number,Address :"+port +"+"+address);
+
+                if(!AsyncJokeServer.serverType) { /* Checking Server Type */
+                    System.out.println("UUID for the current Session : " + userId);
+                    System.out.println("Providing a "+ AsyncJokeServer.mode +" ......");
+                }
+                else{
+                    System.out.println("<S2> UUID for the current Session : " + userId);
+                    System.out.println("<S2> Providing a "+ AsyncJokeServer.mode +" ......");
+                }
+                /* Invoking RandomSelection method for generating random Jokes/Proverbs */
+                AdditionLooper Al = new AdditionLooper(port,address);
+                Thread t = new Thread(Al);
+                t.start();
+                TimeUnit.SECONDS.sleep(10);
+                randomSelection(userId,name,DpReceive,socket);
+
+            } catch (IOException x) { /* Handling the IOException if the name variable is not valid */
+                if(!AsyncJokeServer.serverType){System.out.println("Server read error");}
+                else{System.out.println("<S2> Server read error");}
+                x.printStackTrace();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        } catch (IOException ioe) {
+            System.out.println(ioe);
+        }}
+    }
+
+    public static StringBuilder data(byte[] a)
+    {
+        if (a == null)
+            return null;
+        StringBuilder ret = new StringBuilder();
+        int i = 0;
+        while (a[i] != 0)
+        {
+            ret.append((char) a[i]);
+            i++;
+        }
+        return ret;
+    }
+
+    static void randomSelection(String userId,String name,DatagramPacket dp,DatagramSocket ds) throws IOException {
+        DatagramPacket dpreceive = null;
+        byte[] buf_receive = null;
+            user_Name = name;
+            String Joke_Status = null;
+            String Random_Joke = null;
+            String jokeCycle_Status = null;
+
+            String Random_Proverb = null;
+            String proverbCycleStatus = null;
+            /* Checking for the userId in UUID List */
+            if (UUIDList.contains(userId)) {
+                if (!AsyncJokeServer.serverType) { /* Checking Server Type */
+                    System.out.println("UserId Already Exists !!!!");
+                } else {
+                    System.out.println("<S2> UserId Already Exists !!!!");
+                }
+
+                if (AsyncJokeServer.mode.equalsIgnoreCase("joke")) {
+                    String random_Joke = randomJoke();
+                    /* Loop for preventing Duplicate Jokes from adding to Hashmap */
+                    while (map.get(userId).contains(random_Joke)) {
+                        random_Joke = randomJoke();
+                    }
+                    /* Adding the Joke to Hashmap for respective UserId */
+                    map.get(userId).add(random_Joke);
+                    int jokesCopyListSize = JokeslistCopy.size();
+
+                    /* Checking for Elements in Hashmap and if they are greater than or equal to 4 then incrementing the Joke_Indicator and if it is
+                     *  equal to 4 then remove the four jokes from hashmap and reset the counter  */
+                    if (map.get(userId).stream().count() >= 4) {
+                        /* Resetting the joke Indicator after every Cycle */
+                        Joke_Indicator = 0;
+                        for (String joke : map.get(userId).stream().toList()) {
+                            if (joke.startsWith("J")) {
+                                /* Incrementing Joke Indicator */
+                                Joke_Indicator++;
+                                if (Joke_Indicator == 4) { /* Checking for four Jokes in the Hashmap arraylist*/
+                                    /* Calling RemoveJokes to get the remove count of Jokes */
+                                    int rmCount = RemoveJokes(map, userId);
+                                    /* Resetting the Joke Indication with the number of jokes removed */
+                                    Joke_Indicator = Joke_Indicator - rmCount;
+
+                                }
+                            }
+                        }
+                    }
+
+                    if (!AsyncJokeServer.serverType) { /* Checking Server Type */
+                        /* Writing random Joke to Client */
+
+                        Random_Joke = random_Joke;
+
+                        if (jokesCopyListSize == 0) {
+                            jokeCycle_Status = "Joke Cycle Completed";
+                        }
+                    }
+                }
+                /* Server mode is set to Proverb */
+                else if (AsyncJokeServer.mode.equalsIgnoreCase("proverb")) {
+                    String random_Proverb = randomProverb();
+                    /* Loop for preventing duplicate proverbs from adding to Hashmap */
+                    while (map.get(userId).contains(random_Proverb)) {
+                        random_Proverb = randomProverb();
+                    }
+                    /* Adding the Proverb to Hashmap with respect to the UserId*/
+                    map.get(userId).add(random_Proverb);
+                    int proverbCopyListSize = ProverbslistCopy.size();
+                    /* Checking for Elements in Hashmap and if they are greater than or equal to 4 then incrementing the Proverb_Indicator and if it is
+                     *  equal to 4 then remove the four Proverbs from hashmap and reset the counter  */
+                    if (map.get(userId).stream().count() >= 4) {
+                        /* Resetting the joke Indicator after every Cycle */
+                        Proverb_Indicator = 0;
+                        for (String proverb : map.get(userId).stream().toList()) {
+                            if (proverb.startsWith("P")) {
+                                /* Incrementing Proverb Indicator */
+                                Proverb_Indicator++;
+                                if (Proverb_Indicator == 4) { /* checking for 4 proverbs in the arraylist of the hashmap */
+                                    /* Calling Remove Proverbs to get the remove count of proverbs */
+                                    int rmCount = RemoveProverbs(map, userId);
+                                    /* Resetting the Joke Indication with the number of jokes removed */
+                                    Proverb_Indicator = Proverb_Indicator - rmCount;
+                                }
+                            }
+                        }
+                    }
+                    if (!AsyncJokeServer.serverType) { /* Checking Server Type */
+                        /* Writing random proverb to Client */
+                        Random_Proverb = random_Proverb;
+                        if (proverbCopyListSize == 0) {
+                            proverbCycleStatus = "Proverb Cycle Completed ...";
+                        }
+                    }
+                }
+            } else {
+                if (!AsyncJokeServer.serverType) { /* Checking Server Type */
+                    System.out.println("Creating new User...");
+                } else {
+                    System.out.println("<S2> Creating new User...");
+                }
+                /* Adding the Userid to UUIDList */
+                UUIDList.add(userId);
+                if (AsyncJokeServer.mode.equalsIgnoreCase("joke")) {
+                    String random_Joke = randomJoke();
+
+                    /* Creating a seperate ArrayList for the newly created userId and adding the first joke to Hashmap with the userId */
+                    map.put(userId, new ArrayList<>());
+                    map.get(userId).add(random_Joke);
+
+                    if (!AsyncJokeServer.serverType) { /* Checking Server Type */
+                        Random_Joke = random_Joke;
+                    }
+                } else if (AsyncJokeServer.mode.equalsIgnoreCase("proverb")) {
+                    String random_Proverb = randomProverb();
+
+                    /* Creating a seperate ArrayList for the newly created userId and adding the first proverb to Hashmap with the userId */
+                    map.put(userId, new ArrayList<>());
+                    map.get(userId).add(random_Proverb);
+
+                    if (!AsyncJokeServer.serverType) {/* Checking Server Type */
+                        /* printing random proverb in primary server */
+                        Random_Proverb = random_Proverb;
+                    }
+                }
+            }
+            byte[] buf = null;
+            String packetData = Random_Joke +"joke"+ Random_Proverb+ "proverb" + proverbCycleStatus +"cycleStatus"+ jokeCycle_Status;
+            buf = packetData.getBytes();
+
+            DatagramPacket dp3 = new DatagramPacket(buf, buf.length, dp.getAddress(), dp.getPort());
+            ds.send(dp3);
+
+    }
+
+    /* Method for removing Jokes when Joke cycle Completes */
+    static int RemoveJokes(Map<String,ArrayList<String>> map,String userId){
+        int Remove_Count = 0;
+        for(String joke : map.get(userId).stream().toList()) {
+            if (joke.contains("J")) {           /* Removing Jokes from hashmap for the userId */
+                map.get(userId).remove(joke);
+                /* Incrementing remove count */
+                Remove_Count++;
+            }
+        }
+        /* Returning the count of removed jokes */
+        return Remove_Count;
+    }
+
+    /* Method for removing Proverbs when Proverb cycle Completes */
+    static int RemoveProverbs(Map<String,ArrayList<String>> map,String userId){
+        int Remove_Count = 0;
+        for(String joke : map.get(userId).stream().toList()) {
+            if (joke.contains("P")) {         /* Removing Proverbs from hashmap for the userId */
+                map.get(userId).remove(joke);
+                /* Incrementing remove count */
+                Remove_Count++;
+            }
+        }
+        /* Returning the count of removed proverbs */
+        return Remove_Count;
+    }
+
+    /* Method for fetching random Joke from the Jokes List */
+    static String randomJoke() throws IOException {
+
+        // out = new PrintStream(sock.getOutputStream());
+        /* Clearing the JokesList */
+        Jokeslist.clear();
+        Jokeslist.add("JA "+user_Name + ":"+" What did one DNA say to the other DNA? “Do these genes make me look fat?”");
+        Jokeslist.add("JB "+user_Name+ ":" +" My IQ test results came back. They were negative.");
+        Jokeslist.add("JC "+user_Name+ ":" +" What do you get when you cross a polar bear with a seal? A polar bear.");
+        Jokeslist.add("JD "+user_Name+ ":" +" Why was six afraid of seven? Because seven eight nine.");
+        /* Removing Joke Duplicates */
+        removeJokeDuplicates();
+        /* Initializing the random method */
+        Random random = new Random();
+        int select = random.nextInt(Jokeslist.size());
+        String selectedJoke = Jokeslist.get(select);
+        /* Adding selectedjoke to the jokelistCopy */
+        JokeslistCopy.add(selectedJoke);
+        /* Calculating the size of JokeCopylist */
+        int jokesCopyListSize = JokeslistCopy.size();
+        if (jokesCopyListSize==4) {
+            /* Clearing the JokeCopyList */
+            JokeslistCopy.clear();
+            if(!AsyncJokeServer.serverType) {
+                System.out.println("Joke Cycle has been Completed ...");
+            }
+            else {System.out.println("<S2> Joke Cycle has been Completed ...");
+            }
+        }
+        /* Returning the selected Joke */
+        return selectedJoke;
+    }
+
+    /* Method for fetching random proverb from Proverbs List */
+    static String randomProverb(){
+        /*Clearing the proverb List */
+        Proverbslist.clear();
+        Proverbslist.add("PA "+user_Name +":"+" Honesty is the best policy.");
+        Proverbslist.add("PB "+user_Name +":"+ " Strike while the iron is hot.");
+        Proverbslist.add("PC "+user_Name +":"+" Don’t judge a book by its cover.");
+        Proverbslist.add("PD "+user_Name +":"+" An apple a day keeps the doctor away.");
+        /* Removing the proverb Duplicates */
+        removeProverbDuplicates();
+        /* Initializing the random method */
+        Random random = new Random();
+        /* Getting the size of proverbslist */
+        int select = random.nextInt(Proverbslist.size());
+        String selectedProverb = Proverbslist.get(select);
+        /* Adding the selected proverb to proverbs copy list */
+        ProverbslistCopy.add(selectedProverb);
+        /* Calculating the size of proverb copy list */
+        int proverbCopyListSize = ProverbslistCopy.size();
+        if (proverbCopyListSize==4) {
+            /* Clearing the proverCopylist */
+            ProverbslistCopy.clear();
+            if(!AsyncJokeServer.serverType) {System.out.println("Proverb Cycle has been Completed ...");}
+            else{System.out.println("<S2> Proverb Cycle has been Completed ...");}
+        }
+        /* Returning the selected proverb */
+        return selectedProverb;
+    }
+
+    /* Method for removing Joke Duplicates from Copied JokeList */
+    static void removeJokeDuplicates(){
+        for(String joke : JokeslistCopy){
+            if(Jokeslist.contains(joke)){
+                Jokeslist.remove(joke);
+            }
+        }
+    }
+
+    /* Method for removing Proverb Duplicates from Copied ProverbList */
+    static void removeProverbDuplicates(){
+        for(String proverb : ProverbslistCopy){
+            if(Proverbslist.contains(proverb)){
+                Proverbslist.remove(proverb);
+            }
+
+        }
+    }
+
+
+}
+
+
+class AdditionLooper extends Thread {
+    DatagramSocket socket;
+
+    int port;
+    String address;
+    int num1 =0;
+    int num2 =0;
+    int result = 0;
+    String result_String = "";
+    byte[] results;
+
+    AdditionLooper(int port,String address){
+        this.port = port;
+        this.address = address;
+    }
+    public void run() {
+
+            try {
+                if(socket == null) {
+                    socket = new DatagramSocket(port);
+                }
+                    System.out.println("Addition looper");
+                 //   socket.setReuseAddress(true);
+                  //  new AdditionWorker(socket,address).start();
+                System.out.println("Entered Addition Worker");
+
+                while(true) {
+
+                    try {
+                        byte[] buf = new byte[1024];
+                        DatagramPacket dp = new DatagramPacket(buf,buf.length);
+                        socket.receive(dp);
+                        String receivedData = data(buf).toString();
+
+                        System.out.println("Printing received Data" + receivedData);
+                        num1 = Integer.parseInt(receivedData.split(" ")[0].trim());
+                        num2 = Integer.parseInt(receivedData.split(" ")[1].trim());
+
+                        result = num1 + num2;
+
+                        result_String = result + "";
+
+                        results = result_String.getBytes();
+
+                        DatagramPacket dp1 = new DatagramPacket(results, results.length, dp.getAddress(), dp.getPort());
+                        socket.send(dp1);
+
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+            catch (SocketException e) {
+            }
+
+    }
+    public static StringBuilder data(byte[] a)
+    {
+        if (a == null)
+            return null;
+        StringBuilder ret = new StringBuilder();
+        int i = 0;
+        while (a[i] != 0)
+        {
+            ret.append((char) a[i]);
+            i++;
+        }
+        return ret;
+    }
+
+}
+
+
+class AdditionWorker extends Thread{
+    DatagramSocket ds;
+    String address;
+    int num1 =0;
+    int num2 =0;
+    int result = 0;
+    String result_String = "";
+    byte[] results;
+    AdditionWorker(DatagramSocket socket,String address){
+        this.ds = socket;
+        this.address = address;
+    }
+
+    public void run(){
+
+        System.out.println("Entered Addition Worker");
+
+        while(true) {
+
+            try {
+                byte[] buf = new byte[1024];
+                DatagramPacket dp = new DatagramPacket(buf,buf.length);
+                ds.receive(dp);
+                String receivedData = data(buf).toString();
+
+                System.out.println("Printing received Data" + receivedData);
+                num1 = Integer.parseInt(receivedData.split(" ")[0].trim());
+                num2 = Integer.parseInt(receivedData.split(" ")[1].trim());
+
+                result = num1 + num2;
+
+                result_String = result + "";
+
+                results = result_String.getBytes();
+
+                DatagramPacket dp1 = new DatagramPacket(results, results.length, dp.getAddress(), dp.getPort());
+                ds.send(dp1);
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
+    public static StringBuilder data(byte[] a)
+    {
+        if (a == null)
+            return null;
+        StringBuilder ret = new StringBuilder();
+        int i = 0;
+        while (a[i] != 0)
+        {
+            ret.append((char) a[i]);
+            i++;
+        }
+        return ret;
+    }
+}
+
+
+/********************/
+
+/* Client Code */
+
+/*
+*         1. Name / Date: satya Yoganand Addala / 22-09-2-22
+
+         2. Java version used (java -version), if not the official version for the class: 17.0.2
+
+         3. Precise command-line compilation examples / instructions:
+           > javac JokeServer.java
+           > javac JokeClientAdmin.java
+           > javac JokeClient.java
+
+         4. Precise examples / instructions to run this program:
+
+            In separate shell windows run all the below commands :
+
+                > java JokeServer.java
+                > java JokeClient.java
+                > java JokeClientAdmin.java
+
+            All acceptable commands are displayed on the various consoles.
+
+         5. Notes:
+
+           *  Running this file will ask the user to enter a username and send it to Server and after Clicking enter the Server will give Joke or Proverb Accordingly.
+           *  Generating Unique Id through UUID.randomUUID() and storing it in Server.
+           *  For each statement there is a check of which server the data has to go i.e., Primary or Secondary
+
+*/
+
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+import java.util.UUID;
+import java.util.concurrent.TimeUnit;
+
+public class AsyncJokeClient {
+
+    public static  Boolean dataRec = false;
+    public static Boolean sumFlag;
+
+    public static void main(String args[]) throws IOException {
+        //The Server used for connection is a localhost
+        String serverName;
+        boolean serverType = false;
+        int port1;
+        if (args.length < 1) {
+            /* Setting the Severname to localhost */
+            serverName = "localhost";
+            System.out.println("Satya Yoganand's Joke Client, 1.8.\n");
+            System.out.println("Using Server : " + serverName + ", Port: 4545");
+        } else if (args.length == 1 && args[0].equals("secondary")) {
+            /* Setting the Severname to localhost */
+            serverName = "localhost";
+            /* Setting the SeverType to Secondary Server */
+            serverType = true;
+            System.out.println("<S2> Satya Yoganand's Secondary Joke Client, 1.8.\n");
+            System.out.println("<S2> Using Server : " + serverName + ", Port: 4546");
+        } else {
+            serverName = args[0];
+        }
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        ServerSocket s = new ServerSocket(0);
+        port1 = s.getLocalPort();
+        if (!serverType) { /* Checking ServerType */
+            System.out.println("Enter the User Name, (quit) to end: ");
+        }
+        System.out.flush();
+        String name;
+        name = in.readLine();
+        while (name.equals("")) {
+
+            System.out.println("Please enter a valid name : ");
+            name = in.readLine();
+        }
+        try {
+            String nextLine;
+            /* Generating a random UUID for each client */
+            String userId = UUID.randomUUID().toString();
+
+            do {
+                System.out.println("Enter the User Name or Enter, (quit) to end:");
+                /* Entering the Domain name or IP Address */
+                nextLine = in.readLine();
+                /*If Entered quit then the process gets stopped or else it will Display jokes /proverbs as requested */
+                if (nextLine.indexOf("quit") < 0)
+                    displayJokes(serverType, userId, name, serverName,port1);
+            } while (nextLine.indexOf("quit") < 0);
+            System.out.println("Cancelled by user request.");
+        } catch (IOException x) { /* Catch for handling the IOException*/
+            x.printStackTrace();
+        }
+    }
+
+    static void displayJokes(boolean sType, String userId, String name, String serverName,int portp1) {
+
+
+
+        /* Variable for receiving joke status from server */
+        String Joke_Status;
+        byte[] receive = new byte[65535];
+
+        String random_Joke;
+        String random_Proverb;
+        String proverb_Cycle_Status = "";
+        String joke_Cycle_Status = "";
+
+            try {
+
+
+                DatagramSocket ds = new DatagramSocket();
+
+
+                InetAddress ip = InetAddress.getLocalHost();
+                byte buf[] = null;
+
+
+                String inp = userId + "@" + name + "#" + portp1+";"+ip;
+
+                buf = inp.getBytes();
+                DatagramPacket DpSend = new DatagramPacket(buf, buf.length, ip, 9999);
+                ds.send(DpSend);
+
+                AsyncJokeClient.sumFlag = true;
+                /* Reading data from server */
+                Addition_looper al = new Addition_looper(portp1);
+                Thread t = new Thread(al);
+                t.start();
+                byte[] b1 = new byte[1024];
+                DatagramPacket dp1 = new DatagramPacket(b1, b1.length);
+                ds.receive(dp1);
+
+                AsyncJokeClient.sumFlag = false;
+                random_Joke = data(b1).toString().split("joke")[0].toString();
+                random_Proverb = data(b1).toString().split("joke")[1].split("proverb")[0].toString();
+                joke_Cycle_Status = data(b1).toString().split("proverb")[1].split("cycleStatus")[1].toString();
+                proverb_Cycle_Status = data(b1).toString().split("proverb")[1].split("cycleStatus")[0].toString();
+
+                do{
+                    TimeUnit.SECONDS.sleep(1);
+                }while (!AsyncJokeClient.dataRec);
+
+                AsyncJokeClient.dataRec = false;
+
+                if(!(random_Joke.equals("null"))){
+                    System.out.println("Joke Received");
+                    System.out.println(random_Joke);
+                }
+                if(!(random_Proverb.equals("null"))){
+                    System.out.println("Proverb Received");
+                    System.out.println(random_Proverb);
+                }
+                if(!(joke_Cycle_Status.equals("null"))){
+
+                    System.out.println(joke_Cycle_Status);
+                }
+                if(!(proverb_Cycle_Status.equals("null"))){
+
+                    System.out.println(proverb_Cycle_Status);
+                }
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+    }
+
+
+    public static StringBuilder data(byte[] a) {
+        if (a == null)
+            return null;
+        StringBuilder ret = new StringBuilder();
+        int i = 0;
+        while (a[i] != 0) {
+            ret.append((char) a[i]);
+            i++;
+        }
+        return ret;
+    }
+}
+
+class Addition_looper extends Thread{
+    DatagramSocket socket;
+    int port;
+
+    byte[] buf;
+
+    byte[] receive;
+
+    String result;
+
+
+    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+    public Addition_looper(int port){
+        this.port = port;
+    }
+    public void run(){
+        try {
+            if(socket == null) {
+                socket = new DatagramSocket();
+            }
+
+//            socket.setReuseAddress(true);
+           // new Addition(socket,port).start();
+            while(AsyncJokeClient.sumFlag) {
+
+                System.out.println("Enter the numbers to sum :");
+                try {
+                    String input = in.readLine();
+                    InetAddress ip = InetAddress.getLocalHost();
+                    buf = input.getBytes();
+
+                    DatagramPacket dp = new DatagramPacket(buf, buf.length, ip, port);
+
+
+
+                    socket.send(dp);
+                    receive = new byte[1024];
+
+                    DatagramPacket dp1 = new DatagramPacket(receive, receive.length);
+
+
+                    socket.receive(dp1);
+
+                    result = AsyncJokeClient.data(receive).toString().trim();
+
+                    System.out.println("Result is " + result);
+
+
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            AsyncJokeClient.dataRec = true;
+        } catch (SocketException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
+
+//class Addition extends Thread{
+//    DatagramSocket ds;
+//
+//    int port;
+//    byte[] buf;
+//
+//    byte[] receive;
+//
+//    String result;
+//
+//
+//    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+//
+//    Addition(DatagramSocket ds,int port){
+//        this.ds = ds;
+//        this.port = port;
+//    }
+//
+//    public void run(){
+//        while(AsyncJokeClient.sumFlag) {
+//
+//            System.out.println("Enter the numbers to sum :");
+//            try {
+//                String input = in.readLine();
+//                InetAddress ip = InetAddress.getLocalHost();
+//                buf = input.getBytes();
+//
+//                DatagramPacket dp = new DatagramPacket(buf, buf.length, ip, port);
+//
+//
+//
+//                ds.send(dp);
+//                receive = new byte[1024];
+//
+//                DatagramPacket dp1 = new DatagramPacket(receive, receive.length);
+//
+//
+//                ds.receive(dp1);
+//
+//                result = AsyncJokeClient.data(receive).toString().trim();
+//
+//                System.out.println("Result is " + result);
+//
+//
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
+//        }
+//        AsyncJokeClient.dataRec = true;
+//    }
+//}//
+
+/*******************/
